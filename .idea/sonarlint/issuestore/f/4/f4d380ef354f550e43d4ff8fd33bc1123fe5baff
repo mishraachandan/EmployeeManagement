@@ -1,7 +1,11 @@
 
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄÙõ©8–Ô¨ÎÊ1
+<<<<<<< Updated upstream
 ]	java:S1255"<This block of commented-out lines of code should be removed.(ûŞ´Şøÿÿÿÿ8¢Ô¨ÎÊ1
 M
 java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¤ÓÎÊ1
 Z
 java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¤ÓÎÊ1
+=======
+]	java:S1255"<This block of commented-out lines of code should be removed.(ûŞ´Şøÿÿÿÿ8¢Ô¨ÎÊ1
+>>>>>>> Stashed changes
