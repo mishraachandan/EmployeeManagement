@@ -21,5 +21,6 @@ public interface EmployeeService {
 
     EmployeeDto updateEmployee(EmployeeDto employeeDto);
 
+    String deleteEmp(long id);
 
 }
