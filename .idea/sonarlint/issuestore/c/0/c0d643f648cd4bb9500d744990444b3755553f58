@@ -1,6 +1,13 @@
 
-]	java:S125,"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8áŒâÎÊ1
-€
-java:S1128"^Remove this unused import 'com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl'.(¢†Ùàüÿÿÿÿ8æŒâÎÊ1
+]	java:S1252"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8½®µÕÊ1
 X
-java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8æŒâÎÊ1
+java:S1854A";Remove this useless assignment to local variable "message".(üÊö›8¾®µÕÊ1
+I
+java:S1481A",Remove this unused "message" local variable.(üÊö›8¿®µÕÊ1
+]	java:S125D"<This block of commented-out lines of code should be removed.(¼Û½Âùÿÿÿÿ8¿®µÕÊ1
+€
+java:S1128"^Remove this unused import 'com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl'.(¢†Ùàüÿÿÿÿ8åà×Ê1
+X
+java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8åà×Ê1
+]
+java:S1128"@Remove this unused import 'javax.swing.text.html.parser.Entity'.(Û‡Ğ‘8åà×Ê1

@@ -4,12 +4,16 @@ import com.employeemanagement.emsbackend.dto.EmployeeDto;
 import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import com.employeemanagement.emsbackend.service.EmployeeService;
 import com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @RestController
@@ -18,16 +22,18 @@ public class EmployeeController {
 
 
     private final EmployeeService employeeService;
+    private final Environment environment;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService){
+    public EmployeeController(EmployeeService employeeService, Environment environment){
         this.employeeService = employeeService;
+        this.environment = environment;
     }
 
     //Build Add employee REST API
 
     @PostMapping()
-    public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto){
         EmployeeDto savedEmp = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmp, HttpStatus.CREATED);
     }
@@ -52,6 +58,16 @@ public class EmployeeController {
 
     @DeleteMapping(value = "/deleteEmp/{id}")
     public ResponseEntity<String> deleteEmp(@PathVariable("id")  long id) throws ResourceNotFoundException {
-        return new ResponseEntity<>(employeeService.deleteEmp(id), HttpStatus.OK);
+        try{
+            return new ResponseEntity<>(employeeService.deleteEmp(id), HttpStatus.OK);
+        }
+        catch (Exception e){
+            String message = e.getMessage();
+            String errorMessage = environment.getProperty(e.getMessage());
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, errorMessage != null ? errorMessage : e.getMessage(), e);
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, environment.getProperty(e.getMessage()), e);
+        }
     }
+
+
 }
