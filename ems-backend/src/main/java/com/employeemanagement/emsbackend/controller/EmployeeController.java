@@ -46,16 +46,12 @@ public class EmployeeController {
     }
 
     @PutMapping(value = "/updateEmp")
-    public ResponseEntity<EmployeeDto> updateEmp(@RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> updateEmp(@RequestBody EmployeeDto employeeDto) throws ResourceNotFoundException {
         return new ResponseEntity<>(employeeService.updateEmployee(employeeDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/deleteEmp/{id}")
-    public ResponseEntity<String> deleteEmp(@PathVariable("id")  long id) {
-        try {
-            return new ResponseEntity<>(employeeService.deleteEmp(id), HttpStatus.OK);
-        } catch (ResourceNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<String> deleteEmp(@PathVariable("id")  long id) throws ResourceNotFoundException {
+        return new ResponseEntity<>(employeeService.deleteEmp(id), HttpStatus.OK);
     }
 }

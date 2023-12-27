@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto getEmployeeById(long empId){
+    public EmployeeDto getEmployeeById(long empId) throws ResourceNotFoundException {
 
         Employee employee = employeeRepository.findById(empId)
                 .orElseThrow(() -> new ResourceNotFoundException(
@@ -48,11 +48,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
     
     @Override
-    public EmployeeDto updateEmployee(EmployeeDto employeeDto){
+    public EmployeeDto updateEmployee(EmployeeDto employeeDto) throws ResourceNotFoundException {
         
         // get the employee by ID;
         Employee employee = employeeRepository.findById(employeeDto.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Please check again as the employeeId provided is incorrect"));
+                .orElseThrow(() -> new ResourceNotFoundException("SERVICE.INVALID_ID"));
         
         // perform the update operation
         Employee updatedEmp = setUpdated(employeeDto, employee);
@@ -68,9 +68,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public String deleteEmp(long id){
+    public String deleteEmp(long id) throws ResourceNotFoundException {
         Employee employee = employeeRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Sorry Please enter the correct Emp Id")
+                () -> new ResourceNotFoundException("SERVICE.INVALID_ID")
         );
         employeeRepository.delete(employee);
         return "Employee with employeeID :: " + id + " got deleted from the database.";

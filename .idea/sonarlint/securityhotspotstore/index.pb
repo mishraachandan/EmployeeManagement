@@ -19,3 +19,7 @@ Xems-backend/src/main/java/com/employeemanagement/emsbackend/service/EmployeeSer
 ^ems-backend/src/main/java/com/employeemanagement/emsbackend/controller/EmployeeController.java,c\0\c0d643f648cd4bb9500d744990444b3755553f58
 ”
 dems-backend/src/main/java/com/employeemanagement/emsbackend/exception/ResourceNotFoundException.java,9\6\968b3c91903ef9a468bc799a45138f74a1fc0346
+“
+cems-backend/src/main/java/com/employeemanagement/emsbackend/exception/ExceptionControllerClass.java,9\9\99c0589f2fde7bdc5dcce6a7473bce5ae48018e3
+~
+Nems-backend/src/main/java/com/employeemanagement/emsbackend/dto/ErrorInfo.java,2\4\24f709c8a50c53b70b70545ddae6f366a09d0a83
