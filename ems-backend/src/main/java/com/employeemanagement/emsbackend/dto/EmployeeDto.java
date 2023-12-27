@@ -13,13 +13,13 @@ public class EmployeeDto {
 
     private Long id;
 
-    @Size(min = 4, max = 15, message = "The firstName must be in range of 4 to 15 characters")
+    @Size(min = 4, max = 15, message = "{employee.firstname.invalid}")
     private String firstName;
 
-    @Size(min = 4, max = 15, message = "The Lastname must be in range of 4 to 15 characters")
+    @Size(min = 4, max = 15, message = "{employee.lastname.invalid}")
     private String lastName;
 
-    @Email(message = "Please Enter the correct emailId")
+    @Email(message = "{employee.email.invalid}")
     private String email;
 
 

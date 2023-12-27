@@ -5,11 +5,14 @@ import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import com.employeemanagement.emsbackend.service.EmployeeService;
 import com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
+@Validated
 public class EmployeeController {
 
 
@@ -39,7 +43,7 @@ public class EmployeeController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") Long empId) throws ResourceNotFoundException {
+    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") @Min(value = 4, message = "The employee id must be greater than 3") Long empId) throws ResourceNotFoundException {
         EmployeeDto employeeDto = employeeService.getEmployeeById(empId);
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
 
