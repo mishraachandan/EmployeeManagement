@@ -1,4 +1,4 @@
-package com.employeemanagement.emsbackend.service;
+package com.employeemanagement.emsbackend.repository;
 
 import com.employeemanagement.emsbackend.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
