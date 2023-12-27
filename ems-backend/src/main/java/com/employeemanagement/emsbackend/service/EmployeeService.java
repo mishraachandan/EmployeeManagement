@@ -2,9 +2,6 @@ package com.employeemanagement.emsbackend.service;
 
 
 import com.employeemanagement.emsbackend.dto.EmployeeDto;
-import com.employeemanagement.emsbackend.entity.Employee;
-import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
-import com.employeemanagement.emsbackend.repository.EmployeeRepository;
 
 import java.util.List;
 
