@@ -24,6 +24,14 @@ public class ExceptionControllerClass {
         this.environment = environment;
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorInfo>  exceptionHandler(){
+        ErrorInfo errorInfo = new ErrorInfo(environment.getProperty("GENERAL.EXCEPTION"),
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                LocalDateTime.now());
+        return new ResponseEntity<>(errorInfo, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorInfo> employeeExceptionHandler(ResourceNotFoundException resourceNotFoundException){
         ErrorInfo errorInfo = new ErrorInfo();
