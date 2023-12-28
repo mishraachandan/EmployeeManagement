@@ -2,6 +2,7 @@ package com.employeemanagement.emsbackend.serviceImpl;
 
 import com.employeemanagement.emsbackend.dto.EmployeeDto;
 import com.employeemanagement.emsbackend.entity.Employee;
+import com.employeemanagement.emsbackend.exception.EmailAlreadyExistException;
 import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import com.employeemanagement.emsbackend.mapper.EmployeeMapper;
 import com.employeemanagement.emsbackend.repository.EmployeeRepository;
@@ -25,8 +26,23 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+    public EmployeeDto createEmployee(EmployeeDto employeeDto) throws EmailAlreadyExistException {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
+
+        List<Employee> employeeList = employeeRepository.findAll();
+        boolean emailflag = false;
+
+
+       for(Employee emp: employeeList){
+           if(emp.getEmail().equalsIgnoreCase(employeeDto.getEmail())){
+               emailflag = true;
+               break;
+           }
+       }
+
+       if(emailflag){
+           throw new EmailAlreadyExistException("SERVICE.EMAIL_EXIST");
+       }
         employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(employee);
     }

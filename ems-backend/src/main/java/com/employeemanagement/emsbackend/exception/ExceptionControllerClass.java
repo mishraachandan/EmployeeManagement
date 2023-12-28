@@ -70,4 +70,14 @@ public class ExceptionControllerClass {
         return new ResponseEntity<>(errorInfo, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(EmailAlreadyExistException.class)
+    public ResponseEntity<ErrorInfo> emailValidationExceptionHandler(EmailAlreadyExistException exception){
+        ErrorInfo errorInfo = new ErrorInfo();
+//        Set<ConstraintViolation<?>> con = exception.getConstraintViolations();
+//        String errorMsg = exception.getConstraintViolations().stream().map(x -> x.getMessage()).collect(Collectors.joining("."));
+        errorInfo.setErrorMessage(environment.getProperty(exception.getMessage()));
+        errorInfo.setTimestamp(LocalDateTime.now());
+        errorInfo.setErrorCode(HttpStatus.BAD_REQUEST.value());
+        return new ResponseEntity<>(errorInfo, HttpStatus.BAD_REQUEST);
+    }
 }

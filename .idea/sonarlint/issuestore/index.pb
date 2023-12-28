@@ -23,3 +23,5 @@ dems-backend/src/main/java/com/employeemanagement/emsbackend/exception/ResourceN
 cems-backend/src/main/java/com/employeemanagement/emsbackend/exception/ExceptionControllerClass.java,9\9\99c0589f2fde7bdc5dcce6a7473bce5ae48018e3
 ~
 Nems-backend/src/main/java/com/employeemanagement/emsbackend/dto/ErrorInfo.java,2\4\24f709c8a50c53b70b70545ddae6f366a09d0a83
+•
+eems-backend/src/main/java/com/employeemanagement/emsbackend/exception/EmailAlreadyExistException.java,7\5\75c35003b67a1e863d93b65c45d208ff12d2c85c

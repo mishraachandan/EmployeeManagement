@@ -1,16 +1,7 @@
 
-]	java:S1256"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8ûØ†ÙÊ1
+]	java:S1257"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8ûØ†ÙÊ1
 X
-java:S1854E";Remove this useless assignment to local variable "message".(üÊö›8ıØ†ÙÊ1
+java:S1854F";Remove this useless assignment to local variable "message".(üÊö›8ıØ†ÙÊ1
 I
-java:S1481E",Remove this unused "message" local variable.(üÊö›8şØ†ÙÊ1
-]	java:S125H"<This block of commented-out lines of code should be removed.(¼Û½Âùÿÿÿÿ8şØ†ÙÊ1
-€
-java:S1128"^Remove this unused import 'com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl'.(¢†Ùàüÿÿÿÿ8Šõ†ÙÊ1
-a
-java:S1128	"DRemove this unused import 'jakarta.validation.constraints.NotEmpty'.(µÇî±8Šõ†ÙÊ1
-X
-java:S1128
-"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8Šõ†ÙÊ1
-]
-java:S1128"@Remove this unused import 'javax.swing.text.html.parser.Entity'.(Û‡Ğ‘8Šõ†ÙÊ1
+java:S1481F",Remove this unused "message" local variable.(üÊö›8şØ†ÙÊ1
+]	java:S125I"<This block of commented-out lines of code should be removed.(¼Û½Âùÿÿÿÿ8şØ†ÙÊ1

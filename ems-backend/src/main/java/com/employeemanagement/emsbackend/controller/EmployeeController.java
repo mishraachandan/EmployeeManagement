@@ -1,6 +1,7 @@
 package com.employeemanagement.emsbackend.controller;
 
 import com.employeemanagement.emsbackend.dto.EmployeeDto;
+import com.employeemanagement.emsbackend.exception.EmailAlreadyExistException;
 import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import com.employeemanagement.emsbackend.service.EmployeeService;
 import com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl;
@@ -37,7 +38,7 @@ public class EmployeeController {
     //Build Add employee REST API
 
     @PostMapping()
-    public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto){
+    public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws EmailAlreadyExistException {
         EmployeeDto savedEmp = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmp, HttpStatus.CREATED);
     }
