@@ -8,6 +8,8 @@ import com.employeemanagement.emsbackend.mapper.EmployeeMapper;
 import com.employeemanagement.emsbackend.repository.EmployeeRepository;
 import com.employeemanagement.emsbackend.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ import java.util.stream.Collectors;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+
+    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     public EmployeeServiceImpl(EmployeeRepository employeeRepository){
@@ -43,8 +47,14 @@ public class EmployeeServiceImpl implements EmployeeService {
        if(emailflag){
            throw new EmailAlreadyExistException("SERVICE.EMAIL_EXIST");
        }
+
+       firstNameEncode(employee);
         employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(employee);
+    }
+
+    public void firstNameEncode(Employee employee){
+        employee.setFirstName(passwordEncoder.encode(employee.getFirstName()));
     }
 
     @Override

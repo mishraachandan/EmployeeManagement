@@ -37,7 +37,7 @@ public class EmployeeController {
 
     //Build Add employee REST API
 
-    @PostMapping()
+    @PostMapping("/createEmp")
     public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws EmailAlreadyExistException {
         EmployeeDto savedEmp = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmp, HttpStatus.CREATED);
