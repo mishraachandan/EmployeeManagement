@@ -103,6 +103,4 @@ public class EmployeeServiceImpl implements EmployeeService {
         return "Employee with employeeID :: " + id + " got deleted from the database.";
 
     }
-
-
 }
