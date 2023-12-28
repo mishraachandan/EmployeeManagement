@@ -29,6 +29,7 @@ public class SpringSecurity{
 
     @Bean
     public InMemoryUserDetailsManager userDetailsService(){
+
         UserDetails user = User.withUsername("Jayesh").password(passwordEncoder().encode("user"))
                 .roles("USER").build();
 
@@ -40,7 +41,7 @@ public class SpringSecurity{
 
     @Bean
     public SecurityFilterChain filerChain(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeHttpRequests().requestMatchers("/api/employees/**").hasRole("USER")
+        httpSecurity.authorizeHttpRequests().requestMatchers("/api/employees/allEmployees/**").hasRole("ADMIN")
                 .anyRequest().authenticated().and().httpBasic();
 
         httpSecurity.csrf().disable();

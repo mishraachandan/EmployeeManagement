@@ -27,3 +27,5 @@ Nems-backend/src/main/java/com/employeemanagement/emsbackend/dto/ErrorInfo.java
 eems-backend/src/main/java/com/employeemanagement/emsbackend/exception/EmailAlreadyExistException.java,7\5\75c35003b67a1e863d93b65c45d208ff12d2c85c
 Ž
 ^ems-backend/src/main/java/com/employeemanagement/emsbackend/securityconfig/SpringSecurity.java,e\0\e060ef66a950007c0d14f96ec03346e3bf570b3a
+;
+.tgitconfig,6\3\63248de46080ac3cbade5bb53ff4094d85d1d65d
