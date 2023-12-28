@@ -5,6 +5,8 @@ import com.employeemanagement.emsbackend.entity.Employee;
 
 public class EmployeeMapper {
 
+    private EmployeeMapper(){}
+
     public static EmployeeDto mapToEmployeeDto(Employee employee){
         return new EmployeeDto(employee.getEmployeeId(), employee.getFirstName(), employee.getLastName(), employee.getEmail(), employee.getPassword());
     }

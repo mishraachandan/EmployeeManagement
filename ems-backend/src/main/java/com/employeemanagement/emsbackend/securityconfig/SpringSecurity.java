@@ -1,8 +1,6 @@
 package com.employeemanagement.emsbackend.securityconfig;
 
 
-import com.employeemanagement.emsbackend.repository.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,13 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 // This means:: it tells spring to enable its web security support.
 @EnableWebSecurity
 public class SpringSecurity{
-
-    private final EmployeeRepository employeeRepository;
-
-    @Autowired
-    public SpringSecurity(EmployeeRepository employeeRepository){
-        this.employeeRepository = employeeRepository;
-    }
 
 
     @Bean
