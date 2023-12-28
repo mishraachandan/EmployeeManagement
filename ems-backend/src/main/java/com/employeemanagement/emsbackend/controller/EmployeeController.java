@@ -4,11 +4,8 @@ import com.employeemanagement.emsbackend.dto.EmployeeDto;
 import com.employeemanagement.emsbackend.exception.EmailAlreadyExistException;
 import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import com.employeemanagement.emsbackend.service.EmployeeService;
-import com.employeemanagement.emsbackend.serviceImpl.EmployeeServiceImpl;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -17,7 +14,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @RestController
@@ -38,8 +34,8 @@ public class EmployeeController {
     //Build Add employee REST API
 
     @PostMapping("/createEmp")
-    public ResponseEntity<EmployeeDto> createEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws EmailAlreadyExistException {
-        EmployeeDto savedEmp = employeeService.createEmployee(employeeDto);
+    public ResponseEntity<String> createEmployee(@Valid @RequestBody EmployeeDto employeeDto) throws EmailAlreadyExistException {
+        String savedEmp = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmp, HttpStatus.CREATED);
     }
 

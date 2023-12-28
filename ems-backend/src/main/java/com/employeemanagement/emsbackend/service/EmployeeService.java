@@ -8,7 +8,7 @@ import com.employeemanagement.emsbackend.exception.ResourceNotFoundException;
 import java.util.List;
 
 public interface EmployeeService {
-    EmployeeDto createEmployee(EmployeeDto employeeDto) throws EmailAlreadyExistException;
+    String createEmployee(EmployeeDto employeeDto) throws EmailAlreadyExistException;
 
     // Get this method working after the use of this.
 //    default String giveDetails(Long employeeId){

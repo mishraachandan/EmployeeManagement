@@ -1,7 +1,7 @@
 
-]	java:S1257"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8ûØ†ÙÊ1
+]	java:S1253"<This block of commented-out lines of code should be removed.(·ğäùÿÿÿÿ8ûØ†ÙÊ1
 X
-java:S1854F";Remove this useless assignment to local variable "message".(üÊö›8ıØ†ÙÊ1
+java:S1854B";Remove this useless assignment to local variable "message".(üÊö›8ıØ†ÙÊ1
 I
-java:S1481F",Remove this unused "message" local variable.(üÊö›8şØ†ÙÊ1
-]	java:S125I"<This block of commented-out lines of code should be removed.(¼Û½Âùÿÿÿÿ8şØ†ÙÊ1
+java:S1481B",Remove this unused "message" local variable.(üÊö›8şØ†ÙÊ1
+]	java:S125E"<This block of commented-out lines of code should be removed.(¼Û½Âùÿÿÿÿ8şØ†ÙÊ1

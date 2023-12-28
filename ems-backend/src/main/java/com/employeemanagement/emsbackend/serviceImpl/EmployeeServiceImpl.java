@@ -11,11 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -30,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto createEmployee(EmployeeDto employeeDto) throws EmailAlreadyExistException {
+    public String createEmployee(EmployeeDto employeeDto) throws EmailAlreadyExistException {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
 
         List<Employee> employeeList = employeeRepository.findAll();
@@ -48,13 +44,17 @@ public class EmployeeServiceImpl implements EmployeeService {
            throw new EmailAlreadyExistException("SERVICE.EMAIL_EXIST");
        }
 
-       firstNameEncode(employee);
-        employeeRepository.save(employee);
-        return EmployeeMapper.mapToEmployeeDto(employee);
+        passwordEncoder(employee);
+        Employee empSaved = employeeRepository.save(employee);
+
+
+        return String.format("Congratulations %s%s, your Employee-Id is created.",
+                employeeDto.getFirstName().substring(0, 1).toUpperCase(),
+                employeeDto.getFirstName().substring(1));
     }
 
-    public void firstNameEncode(Employee employee){
-        employee.setFirstName(passwordEncoder.encode(employee.getFirstName()));
+    public void passwordEncoder(Employee employee){
+        employee.setPassword(passwordEncoder.encode(employee.getPassword()));
     }
 
     @Override

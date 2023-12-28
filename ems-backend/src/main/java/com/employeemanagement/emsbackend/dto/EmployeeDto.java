@@ -22,5 +22,7 @@ public class EmployeeDto {
     @Email(message = "{employee.email.invalid}")
     private String email;
 
+    private String password;
+
 
 }
